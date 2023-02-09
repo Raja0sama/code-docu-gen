@@ -3,7 +3,6 @@ import config from "../config/index.json";
 export const Context = createContext();
 export const ThemeProvider = ({ children, ...props }) => {
   const [value, setValue] = useState(props.value);
-  console.log({ value });
   return (
     <Context.Provider
       value={{

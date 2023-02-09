@@ -38,30 +38,36 @@ const Documentation = (props) => {
 
 const RenderRoutes = ({ routes, path }) => {
   const location = useLocation();
-  return routes.map((route) => {
-    const returnElement = {
-      path: route.key,
-      name: route.name,
-    };
+  return routes
+    .filter((e) => e.environment != "dev")
+    .map((route) => {
+      const returnElement = {
+        path: route.key,
+        name: route.name,
+      };
 
-    if (route.children) {
+      if (route.children) {
+        return (
+          <>
+            <div className="text-lg pt-2">
+              <a>{returnElement.name}</a>
+            </div>
+            <RenderRoutes path={returnElement.path} routes={route.children} />
+          </>
+        );
+      }
+
+      const isActive = location.pathname.includes(returnElement.path);
+      const style = { opacity: isActive && 100 };
+      const newPath = path
+        ? `${path}/${returnElement.path}`
+        : `${returnElement.path}`;
+
       return (
-        <>
-          <div className="text-lg pt-2">
-            <a>{returnElement.name}</a>
-          </div>
-          <RenderRoutes path={returnElement.path} routes={route.children} />
-        </>
+        <div className="p-2 text-sm opacity-60 hover:opacity-100" style={style}>
+          <Link to={newPath}>{returnElement.name}</Link>
+        </div>
       );
-    }
-
-    const isActive = location.pathname.includes(returnElement.path);
-    const style = { opacity: isActive && 100 };
-    return (
-      <div className="p-2 text-sm opacity-60 hover:opacity-100" style={style}>
-        <Link to={`${path}/${returnElement.path}`}>{returnElement.name}</Link>
-      </div>
-    );
-  });
+    });
 };
 export default Documentation;

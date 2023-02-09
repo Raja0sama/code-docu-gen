@@ -4,18 +4,11 @@
     "theme": {
       "primary": "#39679d",
       "secondary": "#663738",
-      "body": {
-        "mode": "dark",
-        "dark": "#0e1117",
-        "light": "#fff"
-      }
+      "body": { "mode": "dark", "dark": "#0e1117", "light": "#fff" }
     },
     "landingContent": "/markdowns/markdown.md",
     "headerMenu": [
-      {
-        "name": "Documentation",
-        "url": "/documentation"
-      },
+      { "name": "Documentation", "url": "/documentation" },
       {
         "name": "GitHub",
         "url": "https://github.com/Raja0sama/rn-foreground-service"
@@ -27,6 +20,24 @@
     ]
   },
   "routes": [
+    {
+      "name": "Admin",
+      "key": "/admin",
+      "layout": "ADMIN",
+      "environment": "dev",
+      "children": [
+        { "name": "Config", "key": "configuration", "layout": "INDEX" },
+        { "name": "Markdowns", "key": "markdowns", "layout": "MARKDOWNS" },
+        { "name": "Pages", "key": "pages", "layout": "PAGES" },
+        {
+          "name": "Markdown View",
+          "key": "markdowns/:id",
+          "invisible": true,
+          "layout": "MARKDOWN_ITEM"
+        }
+      ]
+    },
+
     {
       "name": "Documentation",
       "key": "/documentation",
@@ -69,6 +80,19 @@
           "key": "tasks",
           "layout": "DOCUMENTATION_CONTAINER",
           "content": "/markdowns/tasks.md"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "key": "/more",
+      "layout": "DOCUMENTATION",
+      "children": [
+        {
+          "key": "about_author",
+          "name": "About Author",
+          "layout": "DOCUMENTATION_CONTAINER",
+          "content": "/markdowns/about_author.md"
         }
       ]
     }

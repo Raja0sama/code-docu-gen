@@ -21,3 +21,8 @@ npm i @supersami/rn-foreground-service
 yarn add @supersami/rn-foreground-service
 </code>
 </p>
+
+<hr/>
+<p align="center">
+The Author is currently seeking new opportunities and freelance projects. Contact me to discuss how I can contribute to your software development needs. Want to see some of my work? Check out my portfolio <a href="https://rajaosama.me/">portfolio</a> and connect with me on <a href="https://www.linkedin.com/in/rajaosama">LinkedIn</a>
+</p>

@@ -1,3 +1,6 @@
+[![IMAGE ALT TEXT HERE](/youtubeThumbnail.png)](https://www.youtube.com/watch?v=t5LQdbvjufM&t=83s&ab_channel=RajaOsama)
+
+
 # Getting Started
 
 After Installing and linking the application, the rest of the procedure is pretty stragihtforward. You need register a headless task and and create a foreground service.

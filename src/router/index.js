@@ -4,6 +4,11 @@ import Home from "../pages/home";
 import Documentation from "../pages/documentation";
 import config from "../config/index.json";
 import MarkdownPreview from "@uiw/react-markdown-preview";
+import Admin from "../pages/admin";
+import Configuration from "../pages/admin/configuration";
+import Markdowns from "../pages/admin/markdowns";
+import MarkdownItem from "../pages/admin/markdowns/markdownItem";
+import Pages from "../pages/admin/pages";
 
 const Element = (props) => {
   const data = useLoaderData();
@@ -21,6 +26,11 @@ const Element = (props) => {
 const Components = {
   DOCUMENTATION: Documentation,
   DOCUMENTATION_CONTAINER: Element,
+  ADMIN: Admin,
+  INDEX: Configuration,
+  MARKDOWNS: Markdowns,
+  MARKDOWN_ITEM: MarkdownItem,
+  PAGES: Pages,
 };
 const generate_routes = (routes) => {
   return routes.map((route) => {
@@ -31,7 +41,6 @@ const generate_routes = (routes) => {
     };
 
     if (route.children) {
-      console.log({ d: route.redirect });
       returnElement.children = generate_routes(route.children);
     }
     if (route.content) {
